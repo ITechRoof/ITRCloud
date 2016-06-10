@@ -35,10 +35,12 @@
     
     CKContainer *container = [CKContainer defaultContainer];
     CKDatabase *database = container.publicCloudDatabase;
-    NSPredicate *predicate =[NSPredicate predicateWithValue:YES];
+   // NSPredicate *predicate =[NSPredicate predicateWithValue:YES];
+// NSPredicate *predicate = [[NSPredicate alloc] init];
+    //[predicate predicateWithSubstitutionVariables:@{@"TITLE" : @"chh"}];
 
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"TEXT == %@", @"bend"];
     CKQuery *query = [[CKQuery alloc] initWithRecordType:@"ITRNotes" predicate:predicate];
-    
     [database performQuery:query inZoneWithID:nil completionHandler:^(NSArray<CKRecord *> * _Nullable results, NSError * _Nullable error) {
         
         if(results.count > 0) {
@@ -104,7 +106,7 @@
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {

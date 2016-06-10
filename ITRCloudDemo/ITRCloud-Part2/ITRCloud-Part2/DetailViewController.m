@@ -43,7 +43,7 @@
     
     self.selectedNote.noteText = self.noteTextfield.text;
     self.selectedNote.imageURL = self.imageURL;
-    
+
     if(!self.selectedNote.isNew) {
         
         [database fetchRecordWithID:recordID completionHandler:^(CKRecord * _Nullable record, NSError * _Nullable error) {
