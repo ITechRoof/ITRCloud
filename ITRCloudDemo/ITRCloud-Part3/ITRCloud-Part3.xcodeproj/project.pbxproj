@@ -12,6 +12,8 @@
 		830BC8491D05AC14008748AE /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 830BC8481D05AC14008748AE /* Page.m */; };
 		830BC84C1D05AC28008748AE /* PageDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 830BC84B1D05AC28008748AE /* PageDocument.m */; };
 		8315BE7E1D08165400A9E394 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8315BE7D1D08165400A9E394 /* Settings.bundle */; };
+		831FA10D1D0BC12D00906A15 /* ConflictPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FA10C1D0BC12D00906A15 /* ConflictPage.m */; };
+		831FA1101D0BC38400906A15 /* ITRResolveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 831FA10F1D0BC38400906A15 /* ITRResolveViewController.m */; };
 		83D904811CFF03290077DC5D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D904801CFF03290077DC5D /* main.m */; };
 		83D904841CFF03290077DC5D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83D904831CFF03290077DC5D /* AppDelegate.m */; };
 		83D9048A1CFF03290077DC5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D904881CFF03290077DC5D /* Main.storyboard */; };
@@ -30,6 +32,10 @@
 		830BC84A1D05AC28008748AE /* PageDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageDocument.h; sourceTree = "<group>"; };
 		830BC84B1D05AC28008748AE /* PageDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageDocument.m; sourceTree = "<group>"; };
 		8315BE7D1D08165400A9E394 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		831FA10B1D0BC12D00906A15 /* ConflictPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConflictPage.h; sourceTree = "<group>"; };
+		831FA10C1D0BC12D00906A15 /* ConflictPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConflictPage.m; sourceTree = "<group>"; };
+		831FA10E1D0BC38400906A15 /* ITRResolveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITRResolveViewController.h; sourceTree = "<group>"; };
+		831FA10F1D0BC38400906A15 /* ITRResolveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ITRResolveViewController.m; sourceTree = "<group>"; };
 		83D9047C1CFF03290077DC5D /* ITRCloud-Part3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITRCloud-Part3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D904801CFF03290077DC5D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		83D904821CFF03290077DC5D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 				830BC83E1D05ABD6008748AE /* ITRDetailViewController.m */,
 				830BC83F1D05ABD6008748AE /* ITRViewController.h */,
 				830BC8401D05ABD6008748AE /* ITRViewController.m */,
+				831FA10E1D0BC38400906A15 /* ITRResolveViewController.h */,
+				831FA10F1D0BC38400906A15 /* ITRResolveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -69,6 +77,8 @@
 				830BC8481D05AC14008748AE /* Page.m */,
 				830BC84A1D05AC28008748AE /* PageDocument.h */,
 				830BC84B1D05AC28008748AE /* PageDocument.m */,
+				831FA10B1D0BC12D00906A15 /* ConflictPage.h */,
+				831FA10C1D0BC12D00906A15 /* ConflictPage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,7 +203,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				830BC8491D05AC14008748AE /* Page.m in Sources */,
+				831FA10D1D0BC12D00906A15 /* ConflictPage.m in Sources */,
 				830BC8421D05ABD6008748AE /* ITRViewController.m in Sources */,
+				831FA1101D0BC38400906A15 /* ITRResolveViewController.m in Sources */,
 				830BC8411D05ABD6008748AE /* ITRDetailViewController.m in Sources */,
 				830BC84C1D05AC28008748AE /* PageDocument.m in Sources */,
 				83D904841CFF03290077DC5D /* AppDelegate.m in Sources */,

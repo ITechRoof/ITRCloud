@@ -9,6 +9,7 @@
 #import "ITRViewController.h"
 #import "ITRDetailViewController.h"
 #import "PageDocument.h"
+#import "ITRResolveViewController.h"
 
 typedef NS_ENUM(NSInteger, ITRCloudOperation) {
     ITRCloudOperationSave = 0,
@@ -17,6 +18,17 @@ typedef NS_ENUM(NSInteger, ITRCloudOperation) {
     ITRCloudOperationLoad
 };
 
+
+@interface ITRPageCell : UITableViewCell
+
+@property (weak, nonatomic) IBOutlet UILabel *pageTitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *conflictButton;
+
+@end
+
+@implementation ITRPageCell
+
+@end
 
 @interface ITRViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -38,8 +50,15 @@ typedef NS_ENUM(NSInteger, ITRCloudOperation) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = ((PageDocument *)self.pagesArray[indexPath.row]).page.pageTitle;
+    ITRPageCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ITRPageCell" forIndexPath:indexPath];
+   
+    PageDocument *doc = ((PageDocument *)self.pagesArray[indexPath.row]);
+    cell.pageTitleLabel.text = doc.page.pageTitle;
+    
+    cell.conflictButton.hidden = (doc.documentState != UIDocumentStateInConflict);
+    cell.conflictButton.tag = indexPath.row;
+    [cell.conflictButton addTarget:self action:@selector(resolveConflict:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
 }
 
@@ -73,6 +92,28 @@ typedef NS_ENUM(NSInteger, ITRCloudOperation) {
         [self.pagesArray removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];
     }
+}
+
+- (void)resolveConflict:(id)sender {
+    
+    UIButton *button = (UIButton *)sender;
+    
+    ITRResolveViewController *resolveViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"ITRResolveViewController"];
+    
+    PageDocument *doc = ((PageDocument *)self.pagesArray[button.tag]);
+    resolveViewController.documentURL = doc.fileURL;
+
+    resolveViewController.complete = ^(BOOL success) {
+        
+        if(success) {
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }
+    };
+    
+    [self.navigationController pushViewController:resolveViewController animated:YES];
 }
 
 - (IBAction)addNewPage:(id)sender {
