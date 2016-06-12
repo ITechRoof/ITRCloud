@@ -227,12 +227,20 @@ typedef NS_ENUM(NSInteger, ITRCloudOperation) {
                     break;
                 case ITRCloudOperationDelete:
                 {
-                    NSError *error;
-                    if(![[NSFileManager defaultManager] removeItemAtURL:[self urlForPage:page] error:&error]) {
-                        NSLog(@"%@",error.localizedDescription);
-                    }else {
-                        NSLog(@"Deleted");
-                    }
+                    //File coordinator usage
+//                    NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] initWithFilePresenter:nil];
+//                    [fileCoordinator coordinateWritingItemAtURL:[self urlForPage:page]
+//                                                        options:NSFileCoordinatorWritingForDeleting
+//                                                          error:nil
+//                                                     byAccessor:^(NSURL* writingURL) {
+                                                         NSError *error;
+                                                         if(![[NSFileManager defaultManager] removeItemAtURL:[self urlForPage:page] error:&error]) {
+                                                             NSLog(@"%@",error.localizedDescription);
+                                                         }else {
+                                                             NSLog(@"Deleted");
+                                                         }
+//                                                     }];
+                    
                 }
                     break;
                 default:
